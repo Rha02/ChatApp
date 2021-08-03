@@ -1,4 +1,10 @@
-const messages = []
+const messages = [
+  {
+    "username": "Admin",
+    "text": "Admin here!",
+    "created_at": Date.now()
+  }
+]
 
 module.exports = class Message {
   constructor(username, text) {
