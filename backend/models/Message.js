@@ -1,3 +1,8 @@
+const fs = require('fs');
+const path = require('path');
+
+// const p = path.join(path.dirname(require.main.filename), '..', 'data', 'messages.json');
+//
 const messages = [
   {
     "username": "Admin",
@@ -5,6 +10,13 @@ const messages = [
     "created_at": Date.now()
   }
 ]
+//
+// const getMessagesFromFile = (callback) => {
+//   fs.readFile(p, (err, fileContent) => {
+//     callback([]);
+//   })
+//   callback(JSON.parse(fileContent));
+// }
 
 module.exports = class Message {
   constructor(username, text) {
@@ -16,10 +28,20 @@ module.exports = class Message {
   /* save() saves the object (itself) in the messages array */
   save() {
     messages.push(this);
+
+    // getMessagesFromFile(msgs => {
+    //   msgs.push(this);
+    //   fs.writeFile(p, JSON.stringify(msgs), err => {
+    //     console.log(err)
+    //   })
+    // })
   }
 
   /* fetch(number) returns the lastest (number of) messages. */
   static fetch(number) {
+    // getMessagesFromFile(msgs => {
+    //   console.log(msgs);
+    // })
     const output = [];
     let counter = 1;
 
